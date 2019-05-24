@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+# use a tag to the container so we can call it later
+before_install:
+  - docker build -t vinipachecov/docker-react -f Dockerfile.dev .
+
+# run when our test suite be executed
+script:
+  - docker run vinipachecov/docker-react npm run test -- --coverage
