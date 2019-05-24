@@ -8,4 +8,4 @@ before_install:
 
 # run when our test suite be executed
 script:
-  - docker run vinipachecov/docker-react npm run test -- --coverage
+  - docker run vinipachecov/docker-react npm run ci-test -- --coverage
