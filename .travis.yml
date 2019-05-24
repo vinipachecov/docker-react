@@ -9,3 +9,20 @@ before_install:
 # run when our test suite be executed
 script:
   - docker run vinipachecov/docker-react npm run ci-test -- --coverage
+
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  name: "docker-react"
+  env: "DockerReact-env"
+  # bucket configurations
+  bucket_name: "elasticbeanstalk-us-east-1-466903733458"
+  bucket_path: "docker-react"  
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_ID
+  secret_access_key:
+    secure: $AWS_ACCESS_SECRET
+
+    
