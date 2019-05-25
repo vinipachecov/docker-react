@@ -11,6 +11,7 @@ RUN npm run build
 # Now to the Nginx setup
 
 FROM nginx
+EXPOSE 80
 # I want to copy something from the builder phase
 COPY --from=builder /app/build /usr/share/nginx/html
 # As nginx container image already deals wit hthe startup command
